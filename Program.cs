@@ -50,15 +50,16 @@ class Student
     public void PrintResultSlip()
     {
         Console.WriteLine("---------------------------------");
-        Console.WriteLine($"Student ID: {StudentID}");
-        Console.WriteLine($"Name: {Name}");
-        Console.WriteLine("Units, Marks, and Grades:");
+        Console.WriteLine($"Student ID:\t\t{StudentID}");
+        Console.WriteLine($"Name:\t\t\t{Name}");
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine("Units\t\t\tMarks\tGrade");
         foreach (var subject in Units)
         {
-            Console.WriteLine($"{subject.Key}: {subject.Value} ({GetGrade(subject.Value)})");
+            Console.WriteLine($"{subject.Key.PadRight(16)}\t{subject.Value}\t{GetGrade(subject.Value)}");
         }
-        Console.WriteLine($"Total Marks: {GetTotalMarks()}");
-        Console.WriteLine($"Average Marks: {GetAverageMarks():F2} ({GetGrade(GetAverageMarks())})");
+        Console.WriteLine($"Total Marks:\t\t{GetTotalMarks()}");
+        Console.WriteLine($"Average Marks:\t\t{GetAverageMarks():F2}\t{GetGrade(GetAverageMarks())}");
         Console.WriteLine("---------------------------------");
     }
 }
